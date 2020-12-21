@@ -1,7 +1,4 @@
 <?php
-             
-             
-             
 			include 'config/dbconnection.php';
 			 
              $id = $_SESSION['id'];
@@ -21,9 +18,9 @@
                     $username = $row[1];
                     $password = $row[2];
                     $email = $row[3];
-                    $full_name = $row[4];
-                    $text = $row[5];
-                    $set_profile = $row[6];
+					$full_name = $row[4]; 
+                    $modules_acces = $row[5];
+                    $notification = $row[6];
                     
                     
                     
