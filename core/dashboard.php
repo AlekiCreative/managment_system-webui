@@ -8,8 +8,9 @@ if (!isset($_SESSION['loggedin'])) {
 }
 ?>
 
-<?php include 'get_data.php';?>
+
 <?php include 'parts/header.php';?>
+<?php include 'config/config.php';?>
 
 
 
@@ -58,7 +59,26 @@ if (!isset($_SESSION['loggedin'])) {
                 </div>
 				<!--Konec Řádek profilu -->
             </div>
+		
+		<!-- ODSTRANIT-->
+		<section>
+			<div class="container">
+					<h1><?php echo count($array_module_access);
+					
+					echo $_SESSION['inventory_modules_access'];
+					
+					
+					
+					
+					?>	</h1>
+			</div>
 
+
+			
+		</section>
+		
+		
+		
 
         </section>
         <!-- Konec informační sekce -->
@@ -88,7 +108,32 @@ if (!isset($_SESSION['loggedin'])) {
             <div class="container">
                 <h4> Database</h4>
                 <div class="row">
+					
+					<?php
 
+					echo $num_access_module["true"];
+
+						if($num_access_module["true"] > "1"){ //první hodnota nepovuluje nic, jen zabranuje k vyhození chyby
+							echo "Moduly jsou";
+						
+						}else {
+							
+							echo "Žadné moduly";
+							
+							
+						}
+						
+						
+						
+						
+
+
+
+
+
+					?>
+					
+					
                     <div class="col-md-2">
                         <a href="parts/database/inventory/inventory-all.html">
                             <div class="button_box">

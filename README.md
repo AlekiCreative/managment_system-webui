@@ -7,3 +7,4 @@ WebUI for Managment System
 
 * 0.1 = 20. Prosince 2020 (Zahajen vývoj)
 * 0.2 = 21. Prosince 2020 (Práce na modulech)
+* 0.2.1 = 22. Prosince 2020 (access_module)

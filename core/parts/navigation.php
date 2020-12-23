@@ -12,20 +12,32 @@
                     <a class="nav-link" href="#"><?php echo(date("d. ") . date("F ") . date("Y"));?></a>
                   </li>
                   <li class="nav-item" id="notification">
-                    <i class="far fa-bell"></i>
+					<li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="far fa-bell"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="auth/profile.php"><i class="fas fa-user"></i> No</a>
+                      <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Setting</a>
+                      <a class="dropdown-item" href="auth/logout.php"><i class="fas fa-sign-out-alt"></i> Log out</a>
+                    </div>
+                  </li>
+					
+					
+					
                   </li>
                   <li class="nav-item" id="username">
                     <a class="nav-link" href="#"><?php$_SESSION['name']?></a>
                   </li>
                   <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <img src="../user-data/<?php echo $username;?>/img/profile.jpg" width="30" height="30" style="border-radius: 50%;">
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <a class="dropdown-item" href="auth/profile.php"><i class="fas fa-user"></i> Profile</a>
-                      <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Setting</a>
-                      <a class="dropdown-item" href="auth/logout.php"><i class="fas fa-sign-out-alt"></i> Log out</a>
-                    </div>
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						  <img src="../user-data/<?php echo $username;?>/img/profile.jpg" width="30" height="30" style="border-radius: 50%;">
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						  <a class="dropdown-item" href="auth/profile.php"><i class="fas fa-user"></i> Profile</a>
+						  <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Setting</a>
+						  <a class="dropdown-item" href="auth/logout.php"><i class="fas fa-sign-out-alt"></i> Log out</a>
+						</div>
                   </li>
                     <span class="" style="width: 80px;">
                     </span>

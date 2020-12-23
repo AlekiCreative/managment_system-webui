@@ -1,0 +1,29 @@
+
+OBSAH
+	>_ Struktura sloupku modules v databasi
+	>_ 
+
+
+
+
+
+
+
+
+
+
+====================================
+>_ Struktura access_module v databasi
+====================================
+
+Moduly se zapisuji v řádku true/false oddělen ;
+
+Example: true;false;false;true;false;true;true
+
+0) První hodnota zabranuje k vyhození chyby
+1) Invenotry
+2) Contract
+3) Projects
+4) Documents
+5) Finance
+6) Contact 
