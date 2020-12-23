@@ -60,24 +60,6 @@ if (!isset($_SESSION['loggedin'])) {
 				<!--Konec Řádek profilu -->
             </div>
 		
-		<!-- ODSTRANIT-->
-		<section>
-			<div class="container">
-					<h1><?php echo count($array_module_access);
-					
-					echo $_SESSION['inventory_modules_access'];
-					
-					
-					
-					
-					?>	</h1>
-			</div>
-
-
-			
-		</section>
-		
-		
 		
 
         </section>
@@ -106,86 +88,101 @@ if (!isset($_SESSION['loggedin'])) {
         <!-- Začátek oddílu pro database -->
         <section class="database">
             <div class="container">
-                <h4> Database</h4>
+                <h4> Database (<?php echo intval($num_access_database_module["true"] - 1); ?>)</h4> <!-- Vypise pocet dostupny modulu --> 
                 <div class="row">
 					
 					<?php
-
-					echo $num_access_module["true"];
-
-						if($num_access_module["true"] > "1"){ //první hodnota nepovuluje nic, jen zabranuje k vyhození chyby
-							echo "Moduly jsou";
-						
+					
+						if($num_access_database_module["true"] > "1"){ //první hodnota nepovuluje nic, jen zabranuje k vyhození chyby vzdy nastavena na hodnotu TRUE 
+							echo "<!--Moduly jsou-->";
+							
+							if ($_SESSION['inventory_modules_access'] == "true") {
+							
+							 	echo 	'<div class="col-md-2">
+											<a href="parts/database/inventory/inventory-all.html">
+												<div class="button_box">
+													<i class="fas fa-box"></i>
+													<span class="text">Inventory</span>
+												</div>
+											</a>
+										</div>';
+							}else {}
+							
+							if ($_SESSION['contract_modules_access'] == "true") {
+							
+							 	echo 	'<div class="col-md-2">
+											<a href="#">
+												<div class="button_box">
+													<i class="fas fa-file-signature"></i>
+													<span class="text">Contract</span>
+												</div>
+											</a>
+										</div>';
+							}else {}
+							
+							if ($_SESSION['projects_modules_access'] == "true") {
+							
+							 	echo 	'<div class="col-md-2">
+											<a href="#">
+												<div class="button_box">
+													<i class="fas fa-lightbulb"></i>
+													<span class="text">Projects</span>
+												</div>
+											</a>
+										</div>';
+							}else {}
+							
+							if ($_SESSION['documents_modules_access'] == "true") {
+							
+							 	echo 	'<div class="col-md-2">
+											<a href="#">
+												<div class="button_box">
+													<i class="fas fa-file"></i>
+													<span class="text">Documents</span>
+												</div>
+											</a>
+										</div>';
+							}else {}
+							
+							if ($_SESSION['finance_modules_access'] == "true") {
+							
+							 	echo 	'<div class="col-md-2">
+											<a href="#">
+												<div class="button_box">
+													<i class="fas fa-wallet"></i>
+													<span class="text">Finance</span>
+												</div>
+											</a>
+										</div>';
+							}else {}
+							
+							if ($_SESSION['contact_modules_access'] == "true") {
+							
+							 	echo 	'<div class="col-md-2">
+											<a href="#">
+												<div class="button_box">
+													<i class="fas fa-address-book"></i>
+													<span class="text">Contact</span>
+												</div>
+											</a>
+										</div>';
+							}else {}
+							
+							
+							
+							
+							
+							
+							
 						}else {
 							
 							echo "Žadné moduly";
 							
 							
 						}
-						
-						
-						
-						
-
-
-
-
 
 					?>
 					
-					
-                    <div class="col-md-2">
-                        <a href="parts/database/inventory/inventory-all.html">
-                            <div class="button_box">
-                                <i class="fas fa-box"></i>
-                                <span class="text">Inventory</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-2">
-                        <a href="#">
-                            <div class="button_box">
-                                <i class="fas fa-file-signature"></i>
-                                <span class="text">Contract</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-md-2">
-                        <a href="#">
-                            <div class="button_box">
-                                <i class="fas fa-lightbulb"></i>
-                                <span class="text">Projects</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-md-2">
-                        <a href="#">
-                            <div class="button_box">
-                                <i class="fas fa-file"></i>
-                                <span class="text">Documents</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-md-2">
-                        <a href="#">
-                            <div class="button_box">
-                                <i class="fas fa-wallet"></i>
-                                <span class="text">Finance</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-md-2">
-                        <a href="#">
-                            <div class="button_box">
-                                <i class="fas fa-address-book"></i>
-                                <span class="text">Contact</span>
-                            </div>
-                        </a>
-                    </div>
                 </div>
             </div>
         </section>
@@ -194,66 +191,112 @@ if (!isset($_SESSION['loggedin'])) {
         <!-- Začátek oddílu pro aplikace -->
         <section class="application">
             <div class="container">
-                <h4>Application</h4>
+                <h4>Application(<?php echo intval($num_access_application_module["true"] - 1); ?>)</h4>
                 <div class="row">
-                    <div class="col-md-2">
-                        <a href="#">
-                            <div class="button_box">
-                                <i class="fas fa-envelope"></i>
-                                <span class="text">Mail</span>
-                            </div>
-                        </a>
-                    </div>
+				
+					<?php
+					
+						if($num_access_application_module["true"] > "1"){ //první hodnota nepovuluje nic, jen zabranuje k vyhození chyby vzdy nastavena na hodnotu TRUE 
+							echo "<!--Moduly jsou-->";
+							
+							if ($_SESSION['mail_modules_access'] == "true") {
+							
+							 	echo 	'<div class="col-md-2">
+											<a href="#">
+												<div class="button_box">
+													<i class="fas fa-envelope"></i>
+													<span class="text">Mail</span>
+												</div>
+											</a>
+										</div>';
+							}else {}
+							
+							if ($_SESSION['calendar_modules_access'] == "true") {
+							
+							 	echo 	'<div class="col-md-2">
+											<a href="#">
+												<div class="button_box">
+													<i class="fas fa-calendar-alt"></i>
+													<span class="text">Calendar</span>
+												</div>
+											</a>
+										</div>';
+							}else {}
+							
+							if ($_SESSION['notification_modules_access'] == "true") {
+							
+							 	echo 	'<div class="col-md-2">
+											<a href="#">
+												<div class="button_box">
+													<i class="fas fa-bell"></i>
+													<span class="text">Notification+</span>
+												</div>
+											</a>
+										</div>';
+							}else {}
+							
+							if ($_SESSION['control_modules_access'] == "true") {
+							
+							 	echo 	'<div class="col-md-2">
+											<a href="#">
+												<div class="button_box">
+													<i class="fas fa-gamepad"></i>
+													<span class="text">Control</span>
+												</div>
+											</a>
+										</div>';
+							}else {}
+							
+							if ($_SESSION['analytics_modules_access'] == "true") {
+							
+							 	echo 	'<div class="col-md-2">
+											<a href="#">
+												<div class="button_box">
+													<i class="fas fa-chart-pie"></i>
+													<span class="text">Analytics</span>
+												</div>
+											</a>
+										</div>';
+							}else {}
+							
+							if ($_SESSION['server_modules_access'] == "true") {
+							
+							 	echo 	'<div class="col-md-2">
+											<a href="#">
+												<div class="button_box">
+													<i class="fas fa-server"></i>
+													<span class="text">Server</span>
+												</div>
+											</a>
+										</div>';
+							}else {}
+							
+							
+							
+							
+							
+							
+							
+						}else {
+							
+							echo "Žadné moduly";
+							
+							
+						}
 
-                    <div class="col-md-2">
-                        <a href="#">
-                            <div class="button_box">
-                                <i class="fas fa-calendar-alt"></i>
-                                <span class="text">Calendar</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-md-2">
-                        <a href="#">
-                            <div class="button_box">
-                                <i class="fas fa-bell"></i>
-                                <span class="text">Notification</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-md-2">
-                        <a href="#">
-                            <div class="button_box">
-                                <i class="fas fa-gamepad"></i>
-                                <span class="text">Control</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-md-2">
-                        <a href="#">
-                            <div class="button_box">
-                                <i class="fas fa-chart-pie"></i>
-                                <span class="text">Analytics</span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-md-2">
-                        <a href="#">
-                            <div class="button_box">
-                                <i class="fas fa-server"></i>
-                                <span class="text">Server</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+					?>
+    
             </div>
         </section>
         <!-- Konec oddílu pro aplikace -->
-
+		
+		
+		
+		<?php 
+		
+		if ($_SESSION['contract_modules_access']  == "true" || $_SESSION['projects_modules_access'] == "true"){
+		
+		echo '
         <!-- Začátek oddílu poslední práce -->
         <section class="work">
             <div class="container">
@@ -393,7 +436,10 @@ if (!isset($_SESSION['loggedin'])) {
             </div>
         </section>
         <!-- Konec oddílu poslední práce -->
-
+		';}
+		
+		?>
+		
         <!-- Začátek patičky -->
         <footer class="wrapper">
           <p class="font-sans-semibold">Copyright © 2020 Aleš Pavlík</p>

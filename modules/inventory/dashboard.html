@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+    <head>
+   
+    
+    <meta charset="UTF-8">    
+	<title>Dashboard</title>
+        
+        
+    <!-- =CSS= -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">    
+    <link rel="stylesheet" href="assets/css/inventory.css">    
+    <link rel="stylesheet" href="assets/css/search.css">    
+    
+    <!-- =Fonts= -->
+    <script src="https://kit.fontawesome.com/d77a98d2b4.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400" rel="stylesheet" />
+        
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,600,700" rel="stylesheet" />
+       
+        
+    
+        
+    </head>
+    
+    <body>
+        
+        <div class="navigation">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <a class="navbar-brand" href="/dashboard.html"><i class="fas fa-tasks"></i> Smart Managment System</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="mr-auto"></ul>
+                <ul class="navbar-nav">
+                  <li class="nav-item" id="date">
+                    <a class="nav-link" href="#">30. Sprna 2020</a>
+                  </li>
+                  <li class="nav-item" id="notification">
+                    <i class="far fa-bell"></i>
+                  </li>
+                  <li class="nav-item" id="username">
+                    <a class="nav-link" href="#">Aleki</a>
+                  </li> 
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <img src="../../../assets/img/profile.jpg" width="30" height="30" style="border-radius: 50%;">
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="#"><i class="fas fa-user"></i> Profile</a>
+                      <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Setting</a>
+                      <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Log out</a>
+                    </div>
+                  </li>
+                    <span class="" style="width: 80px;">
+                    </span>
+                </ul>
+              </div>
+            </nav>
+        </div>
+        
+        <div class="menu">
+            <div class="sidenav">
+            <ul>
+                <li><a href="inventory.html" class="menu_list" id="active"><i class="fas fa-box"></i> Inventory</a></li>
+                <ul class="">
+                    <li><a href="inventory.html" class="menu_sublist active" id="active"> Dashboard</a></li>
+                    <li><a href="inventory-all.html" class="menu_sublist " id="active"> All Item </a></li>
+                    <li><a href="new-item.html" class="menu_sublist" id="active"> Create New</a></li>
+                    <li><a href="statistic.html" class="menu_sublist" id="active"> Statistic</a></li>
+                </ul>
+                
+                                
+                <li><a href="contacts.html" class="menu_list" id=""><i class="fas fa-file-signature"></i> Contracts</a></li>
+                <li><a href="projects.html" class="menu_list" id=""><i class="fas fa-lightbulb"></i> Projects</a></li>           
+                <li><a href="documents.html" class="menu_list" id=""><i class="fas fa-file"></i> Documents</a></li>
+                <li><a href="finance.html" class="menu_list" id=""><i class="fas fa-wallet"></i> Finance</a></li>
+                <li><a href="contact.html" class="menu_list" id=""><i class="fas fa-address-book"></i> Contact</a></li>
+            </ul>
+            </div>  
+            
+            
+            
+        </div>
+        <div class="container" style="padding-top:  120px;">
+        <div class="inventory-info">            
+            <div class="row">
+                <div class="col-lg-3 col-sm-6 col-xs-12">
+                    <a href="statistic.html">
+                        <div class="box_info red">
+                            <i class="fas fa-warehouse red"></i>
+                            <span class="text">Total Value</span>
+                            <span class="number">25.420 CZK</span>
+                            <span class="month_number red">-5.000 CZK</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <a href="statistic.html">
+                        <div class="box_info green">
+                            <i class="fas fa-warehouse green"></i>
+                            <span class="text">Total Products</span>
+                            <span class="number">15</span>
+                            <span class="month_number">5</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <a href="statistic.html">
+                        <div class="box_info orange">
+                            <i class="fas fa-check-double orange"></i>
+                            <span class="text">Active Use</span>
+                            <span class="number">9</span>
+                            <span class="month_number">0</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <a href="statistic.html">
+                        <div class="box_info orange">
+                            <i class="fas fa-check-double orange"></i>
+                            <span class="text">Active Use Value</span>
+                            <span class="number">8500 CZK</span>
+                            <span class="month_number">0 CZK</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+            
+        <div class="search-panel">
+      <form>
+        <div class="inner-form">
+          <div class="basic-search">
+            <div class="input-field">
+              <input id="search" type="text" placeholder="Type Keywords" />
+              <div class="icon-wrap">
+                <svg class="svg-inline--fa fa-search fa-w-16" fill="#ccc" aria-hidden="true" data-prefix="fas" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="advance-search">
+            <span class="desc">ADVANCED SEARCH</span>
+            <div class="row">
+              <div class="input-field">
+                <div class="input-select">
+                  <select data-trigger="" name="Category">
+                    <option placeholder="" value="">Category</option>
+                    <option>Subject b</option>
+                    <option>Subject c</option>
+                  </select>
+                </div>
+              </div>
+              <div class="input-field">
+                <div class="input-select">
+                  <select data-trigger="" name="Time">
+                    <option placeholder="" value="">Time</option>
+                    <option>Last time</option>
+                    <option>Today</option>
+                    <option>This week</option>
+                    <option>This month</option>
+                    <option>This year</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+              
+            <div class="row second">
+                    <div class="input-input">
+                        <input id="code" type="text" placeholder="Code" />
+                    </div>
+              
+            </div>
+            <div class="row third">
+              <div class="input-field">
+                <div class="result-count">
+                  <span>108 </span>results</div>
+                <div class="group-btn">
+                  <button class="btn-delete" id="delete">RESET</button>
+                  <button class="btn-search">SEARCH</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>    
+            
+            
+    </div>      
+        
+        
+        
+    <footer class="wrapper">
+      <p class="font-sans-semibold">Copyright © 2020 Aleš Pavlík</p>
+      <p class="font-sans-regular">Powered by Smart_Managment_System_0.1-2alpha</p>
+    </footer>
+        
+        
+    </body>
+    
+    
+    
+
+</html>
+        

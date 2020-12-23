@@ -24,11 +24,15 @@
 						$_SESSION['email'] = $email;
 					$full_name = $row[4]; 
 						$_SESSION['full_name'] = $full_name;
-                    $modules_acces = $row[5];
-						$_SESSION['modules_acces'] = $modules_acces;
-                    $notification = $row[6];
+                    $database_modules_acces = $row[5];
+						$_SESSION['database_modules_access'] = $database_modules_acces;
+                    $application_modules_acces = $row[6];
+						$_SESSION['application_modules_access'] = $application_modules_acces;
+                    $notification = $row[7];
 						$_SESSION['notification'] = $notification;
-                    
+					$setting = $row[8];
+						$_SESSION['setting'] = $setting;
+					
                     
                     
                 }

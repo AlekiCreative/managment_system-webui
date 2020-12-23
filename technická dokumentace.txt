@@ -1,6 +1,6 @@
 
 OBSAH
-	>_ Struktura sloupku modules v databasi
+	>_ Struktura hodnot modulu v databasi
 	>_ 
 
 
@@ -13,17 +13,17 @@ OBSAH
 
 
 ====================================
->_ Struktura access_module v databasi
+>_ Struktura hodnot modulu v databasi
 ====================================
+//Sloupek database_modules a application_modules
+Moduly se zapisuji v řádku za sebou s hodnotou true/false oddělen ;
 
-Moduly se zapisuji v řádku true/false oddělen ;
+_Example_ database_modules: true;false;false;true;false;true;true
 
-Example: true;false;false;true;false;true;true
-
-0) První hodnota zabranuje k vyhození chyby
-1) Invenotry
-2) Contract
-3) Projects
-4) Documents
-5) Finance
-6) Contact 
+ 0) NASTAVENI VZDY NA HODNOTU TRUE / První hodnota zabranuje k vyhození chyby (Notice: Undefined index: true)
+ 1) Invenotry
+ 2) Contract
+ 3) Projects
+ 4) Documents
+ 5) Finance
+ 6) Contact 
