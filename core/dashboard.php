@@ -99,7 +99,7 @@ if (!isset($_SESSION['loggedin'])) {
 							if ($_SESSION['inventory_modules_access'] == "true") {
 							
 							 	echo 	'<div class="col-md-2">
-											<a href="parts/database/inventory/inventory-all.html">
+											<a href="../modules/inventory/dashboard.php">
 												<div class="button_box">
 													<i class="fas fa-box"></i>
 													<span class="text">Inventory</span>
@@ -440,16 +440,4 @@ if (!isset($_SESSION['loggedin'])) {
 		
 		?>
 		
-        <!-- Začátek patičky -->
-        <footer class="wrapper">
-          <p class="font-sans-semibold">Copyright © 2020 Aleš Pavlík</p>
-          <p class="font-sans-regular">Powered by Smart_Managment_System_0.1-2alpha</p>
-        </footer>
-        <!-- Konec patičky -->
-
-    </body>
-
-
-
-
-</html>
+        <?php include "parts/footer.php"; ?>
