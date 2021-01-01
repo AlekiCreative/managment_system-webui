@@ -1,7 +1,12 @@
 <?php 
-session_start();
+if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
+$_SESSION['loggedin'] = true; 
 
-$id = $_SESSION['id'];
+
+$id = isset($_GET['id']) ? $_GET['id'] : '';
 
 
 ?>

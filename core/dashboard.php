@@ -6,6 +6,7 @@ if (!isset($_SESSION['loggedin'])) {
 	header('Location: ../index.html');
 	exit;
 }
+
 ?>
 
 
@@ -16,42 +17,58 @@ if (!isset($_SESSION['loggedin'])) {
 
     <body>
         <?php include 'parts/navigation.php';?>
-
-        <!-- Začátek informační sekce -->
+		
+		
+		
+		
+		<?php	//if ($id == ""){ echo "no";}else echo "yes"; ?>
+        
+		
+		
+		
+		<!-- Začátek informační sekce -->
         <section class="main-info" style="padding-top:  120px;">
             <div class="container">
 			
 				<!--Začátek Řádek profilu -->
                 <div class="row">
                     <div class="profile-img">
-                        <img src="../user-data/<?php echo $username;?>/img/profile.jpg" width="150" height="150" style="border-radius: 50%;">
+                        <img src="<?php echo $folder_position;?>user-data/<?php echo $username;?>/img/profile.jpg" width="150" height="150" style="border-radius: 50%;">
                     </div>
                     <div class="profile-text">
                         <h3>Welcome</h3>
-                        <h1><?php echo $full_name; ?></h1>
+                        <h1><?php echo $full_name; 
+						?></h1>
                         
 
                     </div>
 					
                     <div class="profile-status">
                         <div class="row">
-                            <div class="col-lg">
+						
+						<?php if ($_SESSION['finance_modules_access']  == "true"){
+						
+							echo '<div class="col-lg">
                                     <div class="box_info red">
                                         <i class="fas fa-coins red"></i>
                                         <span class="text">Total Value Cash</span>
                                         <span class="number">7.000 CZK</span>
                                         <span class="month_number">-5.000 CZK</span>
                                 </div>
-                            </div>
-                            <div class="col-md">
+                            </div>';
+						}	
+						
+						if ($_SESSION['inventory_modules_access']  == "true"){
+						
+							echo '<div class="col-md">
                                 <div class="box_info green">
                                     <i class="fas fa-warehouse green"></i>
                                     <span class="text">Total Value Property</span>
                                     <span class="number">30.000 CZK</span>
                                     <span class="month_number">+1.000 CZK</span>
                                 </div>
-                            </div>
-
+                            </div>';
+						} ?>
 
                         </div>
                     </div>
@@ -68,18 +85,27 @@ if (!isset($_SESSION['loggedin'])) {
         <!-- Začátek notifikační sekce -->
         <section class="info-box">
             <div class="container">
-                <div class="general warnig">
+			
+				
+			
+                <div id="general" class="general warnig" style="display: flex;">
                     <div class="warning-title"><i>Omlouváme se, ale některé funkce mohou být z technických důvodu nedostupné</i></div>
-                    <div class="warning-cancle_cross"><a href="#"><i class="fas fa-times-circle"></i></a></div>
+                    <div class="warning-cancle_cross close"><a><i class="fas fa-times-circle"></i></a></div>
                 </div>
-                <div class="general successfully">
+                <div id="general" class="general successfully" style="display: flex;">
                     <div class="warning-title"><i>Zasilká #153124 byla přepravena zakaznikovi</i></div>
-                    <div class="warning-cancle_cross"><a href="#"><i class="fas fa-times-circle"></i></a></div>
+                    <div class="warning-cancle_cross close"><a><i class="fas fa-times-circle"></i></a></div>
                 </div>
-                <div class="general danger">
+                <div id="general" class="general danger" style="display: flex;">
                     <div class="warning-title"><i>Kritické přetížení serveru!!!</i></div>
-                    <div class="warning-cancle_cross"><a href="#"><i class="fas fa-times-circle"></i></a></div>
+                    <div class="warning-cancle_cross close"><a><i class="fas fa-times-circle"></i></a></div>
                 </div>
+				
+				<script>
+				$('.close').on('click', function() {
+				  $(this).parent('.general').hide();
+				});
+				</script>
 
             </div>
         </section>
@@ -93,7 +119,7 @@ if (!isset($_SESSION['loggedin'])) {
 					
 					<?php
 					
-						if($num_access_database_module["true"] > "1"){ //první hodnota nepovuluje nic, jen zabranuje k vyhození chyby vzdy nastavena na hodnotu TRUE 
+						if($num_access_database_module["true"] > "1"){ //první hodnota jen zabranuje k vyhození chyby, vzdy nastavena na hodnotu TRUE 
 							echo "<!--Moduly jsou-->";
 							
 							if ($_SESSION['inventory_modules_access'] == "true") {
@@ -191,7 +217,7 @@ if (!isset($_SESSION['loggedin'])) {
         <!-- Začátek oddílu pro aplikace -->
         <section class="application">
             <div class="container">
-                <h4>Application(<?php echo intval($num_access_application_module["true"] - 1); ?>)</h4>
+                <h4>Application (<?php echo intval($num_access_application_module["true"] - 1); ?>)</h4>
                 <div class="row">
 				
 					<?php
@@ -440,4 +466,9 @@ if (!isset($_SESSION['loggedin'])) {
 		
 		?>
 		
+		
         <?php include "parts/footer.php"; ?>
+		
+		
+		
+		

@@ -15,7 +15,7 @@
                 /* fetch object array */
                 while ($row = $result->fetch_row()) {
                     $id = $row[0];
-						
+						$_SESSION['id'] =	$id;	
                     $username = $row[1];
 						$_SESSION['username'] =	$username;
                     $password = $row[2];

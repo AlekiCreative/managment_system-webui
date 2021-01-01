@@ -14,7 +14,7 @@
 	$_SESSION['contact_modules_access'] = $array_database_module_access["6"];
 
 	$num_access_database_module = array_count_values($array_database_module_access); //vygenerování array s počtem povoleních a nepovolenou modulu
-	
+	$_SESSION['num_access_database_module'] = intval($num_access_database_module["true"] - 1);
 	
 	// Application
 	
@@ -32,7 +32,7 @@
 	$_SESSION['server_modules_access'] = $array_application_module_access["6"];
 
 	$num_access_application_module = array_count_values($array_application_module_access); //vygenerování array s počtem povoleních a nepovolenou modulu
-	
+	$_SESSION['num_access_application_module'] = intval($num_access_application_module["true"] - 1);
 	
 	
 	
