@@ -43,6 +43,10 @@ if (!isset($_SESSION['loggedin'])) {
 				<p><i>Your account details are below:</i></p>	
 				<table>
 					<tr>
+						<td><b>Full Name</b></td>
+						<td><?php echo ": " . $_SESSION['full_name']; ?></td>
+					</tr>
+					<tr>
 						<td><b>Username</b></td>
 						<td><?php echo ": " . $_SESSION['name']; ?></td>
 					</tr>

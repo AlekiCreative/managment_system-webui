@@ -78,7 +78,7 @@
 						</a>
 						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
 						  <a class="dropdown-item" href="<?php echo $folder_position;?>profile.php"><i class="fas fa-user"></i> Profile</a>
-						  <a class="dropdown-item" href="#"><i class="fas fa-cog"></i> Setting</a>
+						  <a class="dropdown-item" href="<?php echo $folder_position;?>setting.php"><i class="fas fa-cog"></i> Setting</a>
 						  <a class="dropdown-item" href="<?php echo $folder_position;?>auth/logout.php"><i class="fas fa-sign-out-alt"></i> Log out</a>
 						</div>
                   </li>

@@ -23,6 +23,7 @@ Prototype version
 	0.2.2 	| 24. Prosince 2020 (vypis dlazdic dostupnych modulu a kontrola dostupnych modulu pro Last Work a priprava sekce)
 	0.2.3 	| 26. Prosince 2020 (uprava modules engine)
 	0.2.4 	| 2. Ledna 2021 (stranka profile s možnosti upravit aktivní moduly | upravy modulu inventory a module engine)
+	0.3 	| 9. Ledna 2021 (stranka nastavení)
 
 ====================================
 >_ Struktura hodnot modulu v databasi
