@@ -9,7 +9,7 @@ if (!isset($_SESSION['loggedin'])) {
 
 
 ?>
-
+<?php include "../../modules/_engine/core.php"; ?>
 <?php include "header.php";?>
 
  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
@@ -143,7 +143,7 @@ if (!isset($_SESSION['loggedin'])) {
 
 
     <body>
-		<?php include "../../modules/_engine/core.php"; ?>
+		
         <?php $getSidebar; ?>
         <?php $getNavigation; ?>
 		  

@@ -5,7 +5,7 @@ include "../../core/config/session.php";
 // Inialiazation
 
 $folder_position = "../../core/";
-
+$user_setting = json_decode($_SESSION['setting'], true);
 
 // Get parts
 $getNavigation = include "../../core/parts/navigation.php";

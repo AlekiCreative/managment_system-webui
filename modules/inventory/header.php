@@ -1,5 +1,7 @@
+
+
 <!DOCTYPE html>
-<html>
+<html class="<?php if ($user_setting['dark_mode'] == "true"){echo "dark";}?>">
     <head>
 
 
@@ -11,6 +13,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/inventory.css">
     <link rel="stylesheet" href="assets/css/search.css">
+    <link rel="stylesheet" href="../_engine/style.css">
     <link rel="stylesheet" href="../../core/assets/css/core.css">
 	
 

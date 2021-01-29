@@ -11,7 +11,16 @@ if (!isset($_SESSION['loggedin'])) {
 
 
 <?php include 'parts/header.php';?>
-<?php include 'config/config.php';?>
+
+
+<?php 
+
+
+//echo $user_setting['dark_mode'];
+
+?>
+
+
 
 <style>
 td {
@@ -26,7 +35,7 @@ td {
     <body>
         <?php include 'parts/navigation.php';?>
 		
-		<section class="main-info">	
+		<section class="main-info" style="padding-top:  120px;">	
 			<div class="container">
 			
 				<!--Začátek Řádek profilu -->
@@ -37,9 +46,11 @@ td {
                     <div class="profile-text">
                         <h3>Welcome</h3>
                         <h1><?php echo $full_name; 
-						?></h1>
+						?>						
+						</h1>
                         
-
+						
+						
                     </div>
                 </div>
 			</div>
@@ -50,12 +61,61 @@ td {
 				<h2>Generaly</h2>
 				</p>
 				<table>
-										
+						
+				<?php					
+				if(isset($_POST['SaveChangeSetting'])){
+							
+					if(isset($_POST['dark_mode'])){
+						$user_setting['dark_mode'] = "true";
+						} else {
+							$user_setting['dark_mode'] = "false";
+						}
+						
+					if(isset($_POST['visible_date_in_navigation'])){
+						$user_setting['visible_date_in_navigation'] = "true";
+						} else {
+							$user_setting['visible_date_in_navigation'] = "false";
+						}
+					
+					//přihlašovací údaje k databasi
+					$servername = "localhost";
+					$username = "root";
+					$password = "";
+					$dbname = "ms";
+
+					// Create connection
+					$con = new mysqli($servername, $username, $password, $dbname);
+					// Check connection
+					if ($con->connect_error) {
+					  die("Connection failed: " . $con->connect_error);
+					}
+					
+					//zakodování pole do json
+					$user_setting_save = json_encode($user_setting);
+					
+					
+					//mysql příkaz k aktualizaci
+					$sql = "UPDATE `accounts` SET `setting` = '$user_setting_save' WHERE `accounts`.`id` = $id;";
+
+
+
+					if ($con->query($sql) === TRUE) {
+					  
+					} else {
+					  echo "Error: " . $sql . "<br>" . $con->error;
+					}
+					$con->close();
+					
+					echo "Aktualizujte si prosím stranku";
+				}
+				?>
+				<p></p>
+				<form action="" method="post">						
 					<tr>
 						<td><b>Dark Mode</b></td>
 						<td>
 							<label class="switch">
-								<input name="" id="" type="checkbox">
+								<input name="dark_mode" id="" type="checkbox" <?php if ($user_setting['dark_mode'] == "true"){echo "checked";}?>>
 								<span class="slider round"></span>
 							</label>
 						</td>
@@ -65,13 +125,16 @@ td {
 						<td><b>Visible Date<br> In Navigation</b></td>
 						<td>
 							<label class="switch">
-								<input name="" id="" type="checkbox">
+								<input name="visible_date_in_navigation" id="" type="checkbox"<?php if ($user_setting['visible_date_in_navigation'] == "true"){echo "checked";}?>>
 								<span class="slider round"></span>
 							</label>
 						</td>
 					</tr>
 					
-
+					<tr>
+						<td><button type="submit" name="SaveChangeSetting">Save</button></td>
+					</tr>
+				</form>
 				</table>
 		
 			</div>

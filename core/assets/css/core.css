@@ -9,6 +9,72 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap');
 
+/*
+==========================
+--------------------------
+		GENERALLY
+--------------------------
+==========================
+*/
+.dark body
+{
+	background-color:  #212121;
+	color: #a3a3a3;
+}
+
+.dark #general,
+.dark .box_info,
+.dark .box_info .number,
+.dark .button_box,
+.dark .work_card,
+.dark .work-card-body,
+.dark .work-card-footer a{
+	background-color: #292b2c!important;
+	color: #a3a3a3!important;	
+}
+.dark .button_box{
+box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15)!important;
+}
+
+/*
+==========================
+--------------------------
+		NAVIGATION
+--------------------------
+==========================
+*/
+
+.dark .navigation,
+.dark .navigation a,
+.dark .navigation .dropdown-menu,
+.dark .navbar{
+	background-color:#292b2c!important;
+	color: #a3a3a3!important;
+}
+
+.navigation,
+.navigation a,
+.navigation .dropdown-menu,
+.navbar{
+	background-color: #f8f9fa;
+	color: rgba(0,0,0,.5);
+}
+.dark .navigation a.dropdown-item:hover{
+	background-color: #1A1A1A!important;
+}
+
+
+
+
+
+/*
+==========================
+--------------------------
+		OTHER
+--------------------------
+==========================
+*/
+
 button:focus {
   outline: 0;
 }

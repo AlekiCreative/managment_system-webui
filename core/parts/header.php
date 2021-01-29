@@ -1,5 +1,9 @@
+
+<?php include 'config/config.php';?>
+
+
 <!DOCTYPE html>
-<html>
+<html class="<?php if ($user_setting['dark_mode'] == "true"){echo "dark";}?>">
     <head>
 
 
@@ -19,5 +23,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script src="assets/css/core.css"></script>
     <script src="assets/css/notification.js"></script>
+
+
+
 
     </head>

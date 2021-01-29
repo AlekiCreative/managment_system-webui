@@ -11,7 +11,7 @@ if (!isset($_SESSION['loggedin'])) {
 
 
 <?php include 'parts/header.php';?>
-<?php include 'config/config.php';?>
+<?php //include 'config/config.php';?>
 
 
 

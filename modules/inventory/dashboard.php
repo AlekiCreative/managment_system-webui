@@ -9,14 +9,14 @@ if (!isset($_SESSION['loggedin'])) {
 
 
 ?>
-
+<?php include "../../modules/_engine/core.php"; ?>
 <?php include "header.php";?>
 
 
 
 
     <body>
-		<?php include "../../modules/_engine/core.php"; ?>
+		
         <?php $getSidebar; ?>
         <?php $getNavigation; ?>
 		        

@@ -7,60 +7,25 @@
     background: #ffffff;
     box-shadow: 2px 2px 2px 0 #a5a5a5;
 }
-
-.menu {
-    position: fixed;
-    background: #f8f9fa;
-    color: white;
-    width: 200px;
-    height: 100%;
-    margin-top: 62px;
-    padding-top: 25px;
+/*
+==========================
+--------------------------
+		Dark mode
+--------------------------
+==========================
+*/
+html {
+	background-color: red!important;
+}
+.search-panel form .inner-form .input-field input,{
+.dark .advance-search{
+	background-color: #292b2c!important;
+	color: #a3a3a3!important;	
 }
 
-.menu .menu_list {
-    font-family: open sans,sans-serif;
-    font-size: 15px;
-    border-left: 3px transparent solid;
-    color: #fff;
-    display: block;
-    padding: 10px 15px;
-    transition: all ease-in .2s;
-    color: #a3a3a3;
-}
-.menu .menu_sublist {
-    
-    font-size: 12px;
-    border-left: 40px transparent solid;
-    color: #fff;
-    display: block;
-    padding: 10px 15px;
-    transition: all ease-in .2s;
-    color: #a3a3a3;
-}
-.menu li .menu_sublist {
-    padding-top: 0;
-}
-
-.menu li .menu_list {
-    padding-bottom: 15px;
-}
-.menu ul {
-    padding-left: 0px;
-    list-style: none;
-}
-
-#active {
-    background: #e7e7e7;
-    color: black
-}
-
-.table td {
-    border: 0px;
-}
-
-.table thead th {
-    border-bottom: 0px;
+{
+	background-color:  #212121!important;
+	color: #a3a3a3!important;
 }
 
 

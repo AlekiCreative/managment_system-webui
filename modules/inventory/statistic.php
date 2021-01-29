@@ -9,14 +9,13 @@ if (!isset($_SESSION['loggedin'])) {
 
 
 ?>
-
+<?php include "../../modules/_engine/core.php"; ?>
 <?php include "header.php";?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
 
 
     <body>
-		<?php include "../../modules/_engine/core.php"; ?>
         <?php $getSidebar; ?>
         <?php $getNavigation; ?>
 		        

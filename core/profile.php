@@ -11,14 +11,14 @@ if (!isset($_SESSION['loggedin'])) {
 
 
 <?php include 'parts/header.php';?>
-<?php include 'config/config.php';?>
+<?php //include 'config/config.php';?>
 
 
 
     <body>
         <?php include 'parts/navigation.php';?>
 		
-		<section class="main-info">	
+		<section class="main-info" style="padding-top:  120px;">	
 			<div class="container">
 			
 				<!--Začátek Řádek profilu -->

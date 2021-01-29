@@ -28,8 +28,8 @@
 
 <!-- Začátek Navigační lišty-->
         <div class="navigation">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-              <a class="navbar-brand" href="<?php echo $folder_position;?>dashboard.php"><i class="fas fa-tasks"></i> Managment System</a>
+            <nav class="navbar fixed-top navbar-expand-lg ">
+              <a class="navbar-brand" href="<?php echo $folder_position;?>dashboard.php" style="color:black;"><i class="fas fa-tasks"></i> Managment System</a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -40,7 +40,7 @@
 				  <!-- Date -->
 				
                   <li class="nav-item" id="date">
-                    <a class="nav-link" href="#"><?php echo(date("d. ") . date("F ") . date("Y"));?></a>
+                    <a class="nav-link" href="#"><?php if ($user_setting['visible_date_in_navigation'] == "true"){ echo(date("d. ") . date("F ") . date("Y")); }?></a>
                   </li>
 				  
 				  <!-- Notification Bell -->

@@ -1,20 +1,10 @@
-
-#inventory_list {
-    padding-top: 25px;
-}
-
-#inventory_border {
-    background: #ffffff;
-    box-shadow: 2px 2px 2px 0 #a5a5a5;
-}
-
 .menu {
     position: fixed;
     background: #f8f9fa;
     color: white;
     width: 200px;
     height: 100%;
-    margin-top: 62px;
+    /*margin-top: 62px;*/
     padding-top: 25px;
 }
 
@@ -63,5 +53,12 @@
     border-bottom: 0px;
 }
 
+.dark .menu{
+	background-color: #292b2c!important;
+	color: #a3a3a3!important;	
+}
 
-
+.dark .menu #active{
+	background-color:  #212121!important;
+	color: #a3a3a3!important;
+}
