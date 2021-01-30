@@ -105,27 +105,14 @@ input[type="search"]{
     background: #a3a3a3;
     color: white
 }
-.menu_sublist.active {
-    font-weight: bold;
-}
-
-
-
-
 .sidenav {
     
 }
-
-
-
 .navigation {
     position: fixed;
     width: 100%;
     z-index: 1;
 }
-
-
-
 .new-item-inv form input {
     margin-bottom: 20px;
 }

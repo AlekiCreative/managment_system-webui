@@ -70,72 +70,56 @@ if (!isset($_SESSION['loggedin'])) {
 				 
 		<?php
 				$id = $_SESSION['id'];
-		
+				
+					
+				// Create connection
+				$con = new mysqli($DB_SERVER, $DB_USER, $DB_PASS, $DB_NAME);
+				// Check connection
+				if ($con->connect_error) {
+				  die("Connection failed: " . $con->connect_error);
+				}
 						
 				if(isset($_POST['SaveChangeDatabase'])){
 							
 					if(isset($_POST['inventory'])){
-						$_SESSION['inventory_modules_access'] = "true";
+						$access_module_database['inventory'] = "true";
 						} else {
-							$_SESSION['inventory_modules_access'] = "false";
+							$access_module_database['inventory'] = "false";
 						}
 						
 					if(isset($_POST['contract'])){
-						$_SESSION['contract_modules_access'] = "true";
+						$access_module_database['contract'] = "true";
 						} else {
-							$_SESSION['contract_modules_access'] = "false";
+							$access_module_database['contract'] = "false";
 						}
 						
 					if(isset($_POST['projects'])){
-						$_SESSION['projects_modules_access'] = "true";
+						$access_module_database['projects'] = "true";
 						} else {
-							$_SESSION['projects_modules_access'] = "false";
+							$access_module_database['projects'] = "false";
 						}
 						
 					if(isset($_POST['documents'])){
-						$_SESSION['documents_modules_access'] = "true";
+						$access_module_database['documents'] = "true";
 						} else {
-							$_SESSION['documents_modules_access'] = "false";
+							$access_module_database['documents'] = "false";
 						}
 						
 					if(isset($_POST['finance'])){
-						$_SESSION['finance_modules_access'] = "true";
+						$access_module_database['finance'] = "true";
 						} else {
-							$_SESSION['finance_modules_access'] = "false";
+							$access_module_database['finance'] = "false";
 						}
 						
 					if(isset($_POST['contact'])){
-						$_SESSION['contact_modules_access'] = "true";
+						$access_module_database['contact'] = "true";
 						} else {
-							$_SESSION['contact_modules_access'] = "false";
+							$access_module_database['contact'] = "false";
 						}
-						
-						
-						
-						
-						
-						
-					$servername = "localhost";
-					$username = "root";
-					$password = "";
-					$dbname = "ms";
 
-					// Create connection
-					$con = new mysqli($servername, $username, $password, $dbname);
-					// Check connection
-					if ($con->connect_error) {
-					  die("Connection failed: " . $con->connect_error);
-					}
+					$access_module_database_save = json_encode($access_module_database);
 					
-					
-					$inventory = $_SESSION['inventory_modules_access'];
-					$contract = $_SESSION['contract_modules_access'];
-					$projects = $_SESSION['projects_modules_access'];
-					$documents = $_SESSION['documents_modules_access'];
-					$finance = $_SESSION['finance_modules_access'];
-					$contact = $_SESSION['contact_modules_access'];
-					
-					$sql = "UPDATE `accounts` SET `database_modules` = 'true;$inventory;$contract;$projects;$documents;$finance;$contact' WHERE `accounts`.`id` = $id;";
+					$sql = "UPDATE `accounts` SET `database_modules` = '$access_module_database_save' WHERE `accounts`.`id` = $id;";
 
 					if ($con->query($sql) === TRUE) {
 					  
@@ -148,68 +132,45 @@ if (!isset($_SESSION['loggedin'])) {
 				if(isset($_POST['SaveChangeApplication'])){
 							
 					if(isset($_POST['mail'])){
-						$_SESSION['mail_modules_access'] = "true";
+						$access_module_application['mail'] = "true";
 						} else {
-							$_SESSION['mail_modules_access'] = "false";
+							$access_module_application['mail'] = "false";
 						}
 						
 					if(isset($_POST['calendar'])){
-						$_SESSION['calendar_modules_access'] = "true";
+						$access_module_application['calendar'] = "true";
 						} else {
-							$_SESSION['calendar_modules_access'] = "false";
+							$access_module_application['calendar'] = "false";
 						}
 						
 					if(isset($_POST['notification'])){
-						$_SESSION['notification_modules_access'] = "true";
+						$access_module_application['notification+'] = "true";
 						} else {
-							$_SESSION['notification_modules_access'] = "false";
+							$access_module_application['notification+'] = "false";
 						}
 						
 					if(isset($_POST['control'])){
-						$_SESSION['control_modules_access'] = "true";
+						$access_module_application['control'] = "true";
 						} else {
-							$_SESSION['control_modules_access'] = "false";
+							$access_module_application['control'] = "false";
 						}
 						
 					if(isset($_POST['analytics'])){
-						$_SESSION['analytics_modules_access'] = "true";
+						$access_module_application['analytics'] = "true";
 						} else {
-							$_SESSION['analytics_modules_access'] = "false";
+							$access_module_application['analytics'] = "false";
 						}
 						
 					if(isset($_POST['server'])){
-						$_SESSION['server_modules_access'] = "true";
+						$access_module_application['server'] = "true";
 						} else {
-							$_SESSION['server_modules_access'] = "false";
+							$access_module_application['server'] = "false";
 						}
-						
-						
-						
-						
-						
-						
-					$servername = "localhost";
-					$username = "root";
-					$password = "";
-					$dbname = "ms";
 
-					// Create connection
-					$con = new mysqli($servername, $username, $password, $dbname);
-					// Check connection
-					if ($con->connect_error) {
-					  die("Connection failed: " . $con->connect_error);
-					}
+		
+					$access_module_application_save = json_encode($access_module_application);
 					
-					
-					$mail = $_SESSION['mail_modules_access'];
-					$calendar = $_SESSION['calendar_modules_access'];
-					$notification = $_SESSION['notification_modules_access'];
-					$control = $_SESSION['control_modules_access'];
-					$analytics = $_SESSION['analytics_modules_access'];
-					$server = $_SESSION['server_modules_access'];
-					
-					
-					$sql = "UPDATE `accounts` SET `application_modules` = 'true;$mail;$calendar;$notification;$control;$analytics;$server' WHERE `accounts`.`id` = $id;";
+					$sql = "UPDATE `accounts` SET `application_modules` = '$access_module_application_save' WHERE `accounts`.`id` = $id;";
 
 					if ($con->query($sql) === TRUE) {
 					  
@@ -236,7 +197,7 @@ if (!isset($_SESSION['loggedin'])) {
 						<td><span>Inventory</span></td>
 						<td>
 							<label class="switch">
-								<input name="inventory" id="inventory" type="checkbox" <?php if ($_SESSION['inventory_modules_access']  == "true"){echo "checked";}?>>
+								<input name="inventory" id="inventory" type="checkbox" <?php if ($access_module_database['inventory']  == "true"){echo "checked";}?>>
 								<span class="slider round"></span>
 							</label>
 						</td>
@@ -245,7 +206,7 @@ if (!isset($_SESSION['loggedin'])) {
 						<td><span>Contract</span></td>
 						<td>
 							<label class="switch">
-								<input name="contract" id="contract" type="checkbox" <?php if ($_SESSION['contract_modules_access']  == "true"){echo "checked";}?>>
+								<input name="contract" id="contract" type="checkbox" <?php if ($access_module_database['contract']  == "true"){echo "checked";}?>>
 								<span class="slider round"></span>
 							</label>
 						</td>
@@ -254,7 +215,7 @@ if (!isset($_SESSION['loggedin'])) {
 						<td><span>Projects</span></td>
 						<td>
 							<label class="switch">
-								<input name="projects" id="projects" type="checkbox" <?php if ($_SESSION['projects_modules_access']  == "true"){echo "checked";}?>>
+								<input name="projects" id="projects" type="checkbox" <?php if ($access_module_database['projects']  == "true"){echo "checked";}?>>
 								<span class="slider round"></span>
 							</label>
 						</td>
@@ -263,7 +224,7 @@ if (!isset($_SESSION['loggedin'])) {
 						<td><span>Documents</span></td>
 						<td>
 							<label class="switch">
-								<input name="documents" id="documents" type="checkbox" <?php if ($_SESSION['documents_modules_access']  == "true"){echo "checked";}?>>
+								<input name="documents" id="documents" type="checkbox" <?php if ($access_module_database['documents']  == "true"){echo "checked";}?>>
 								<span class="slider round"></span>
 							</label>
 						</td>
@@ -272,7 +233,7 @@ if (!isset($_SESSION['loggedin'])) {
 						<td><span>Finance</span></td>
 						<td>
 							<label class="switch">
-								<input name="finance" id="finance" type="checkbox" <?php if ($_SESSION['finance_modules_access']  == "true"){echo "checked";}?>>
+								<input name="finance" id="finance" type="checkbox" <?php if ($access_module_database['finance']  == "true"){echo "checked";}?>>
 								<span class="slider round"></span>
 							</label>
 						</td>
@@ -281,7 +242,7 @@ if (!isset($_SESSION['loggedin'])) {
 						<td><span>Contact</span></td>
 						<td>
 							<label class="switch">
-								<input name="contact" id="contact" type="checkbox" <?php if ($_SESSION['contact_modules_access']  == "true"){echo "checked";}?>>
+								<input name="contact" id="contact" type="checkbox" <?php if ($access_module_database['contact']  == "true"){echo "checked";}?>>
 								<span class="slider round"></span>
 							</label>
 						</td>
@@ -299,7 +260,7 @@ if (!isset($_SESSION['loggedin'])) {
 						<td><span>Mail</span></td>
 						<td>
 							<label class="switch">
-								<input name="mail" id="mail" type="checkbox" <?php if ($_SESSION['mail_modules_access']  == "true"){echo "checked";}?>>
+								<input name="mail" id="mail" type="checkbox" <?php if ($access_module_application['mail']  == "true"){echo "checked";}?>>
 								<span class="slider round"></span>
 							</label>
 						</td>
@@ -308,7 +269,7 @@ if (!isset($_SESSION['loggedin'])) {
 						<td><span>Calendar</span></td>
 						<td>
 							<label class="switch">
-								<input name="calendar" id="calendar" type="checkbox" <?php if ($_SESSION['calendar_modules_access']  == "true"){echo "checked";}?>>
+								<input name="calendar" id="calendar" type="checkbox" <?php if ($access_module_application['calendar']  == "true"){echo "checked";}?>>
 								<span class="slider round"></span>
 							</label>
 						</td>
@@ -317,7 +278,7 @@ if (!isset($_SESSION['loggedin'])) {
 						<td><span>Notification+</span></td>
 						<td>
 							<label class="switch">
-								<input name="notification" id="notification" type="checkbox" <?php if ($_SESSION['notification_modules_access']  == "true"){echo "checked";}?>>
+								<input name="notification" id="notification" type="checkbox" <?php if ($access_module_application['notification+']  == "true"){echo "checked";}?>>
 								<span class="slider round"></span>
 							</label>
 						</td>
@@ -326,7 +287,7 @@ if (!isset($_SESSION['loggedin'])) {
 						<td><span>Control</span></td>
 						<td>
 							<label class="switch">
-								<input name="control" id="control" type="checkbox" <?php if ($_SESSION['control_modules_access']  == "true"){echo "checked";}?>>
+								<input name="control" id="control" type="checkbox" <?php if ($access_module_application['control']  == "true"){echo "checked";}?>>
 								<span class="slider round"></span>
 							</label>
 						</td>
@@ -335,7 +296,7 @@ if (!isset($_SESSION['loggedin'])) {
 						<td><span>Analytics</span></td>
 						<td>
 							<label class="switch">
-								<input name="analytics" id="analytics" type="checkbox" <?php if ($_SESSION['analytics_modules_access']  == "true"){echo "checked";}?>>
+								<input name="analytics" id="analytics" type="checkbox" <?php if ($access_module_application['analytics']  == "true"){echo "checked";}?>>
 								<span class="slider round"></span>
 							</label>
 						</td>
@@ -344,7 +305,7 @@ if (!isset($_SESSION['loggedin'])) {
 						<td><span>Server</span></td>
 						<td>
 							<label class="switch">
-								<input name="server" id="server" type="checkbox" <?php if ($_SESSION['server_modules_access']  == "true"){echo "checked";}?>>
+								<input name="server" id="server" type="checkbox" <?php if ($access_module_application['server']  == "true"){echo "checked";}?>>
 								<span class="slider round"></span>
 							</label>
 						</td>

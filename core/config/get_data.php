@@ -1,13 +1,17 @@
 <?php
-			include 'config/dbconnection.php';
-			 
-             $id = $_SESSION['id'];
+			$conn = mysqli_connect($DB_SERVER,$DB_USER,$DB_PASS,$DB_NAME);
+
+			// Check connection
+			if (mysqli_connect_errno())
+			{
+			echo "Failed to connect to MySQL: " . mysqli_connect_error();
+			}
+					
+            
+			$id = $_SESSION['id'];
         
-             $q = 	'SELECT * FROM accounts WHERE id="'.$id.'"';
-			 
-			 
-             
-             
+            $q = 	'SELECT * FROM accounts WHERE id="'.$id.'"';
+
              
             if ($result = $conn->query($q)) {
 				

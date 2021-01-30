@@ -7,6 +7,9 @@
     /*margin-top: 62px;*/
     padding-top: 25px;
 }
+.menu_sublist.active {
+    font-weight: bold;
+}
 
 .menu .menu_list {
     font-family: open sans,sans-serif;

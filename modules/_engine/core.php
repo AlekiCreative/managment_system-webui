@@ -1,9 +1,10 @@
 <?php 
 
 include "../../core/config/session.php";
+include "../../core/config/config.php";
+
 
 // Inialiazation
-
 $folder_position = "../../core/";
 $user_setting = json_decode($_SESSION['setting'], true);
 

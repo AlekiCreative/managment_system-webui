@@ -9,6 +9,7 @@ _OBSAH_
 	>_ Historie vývoje
 	>_ Struktura hodnot modulu v databasi
 	>_ Struktura dat v databasi
+	>_ Struktura sloupku setting v MySQL
 
 ====================================
 >_ Historie vývoje
@@ -23,33 +24,22 @@ Prototype version
 	0.2.2 	| 24. Prosince 2020 (vypis dlazdic dostupnych modulu a kontrola dostupnych modulu pro Last Work a priprava sekce)
 	0.2.3 	| 26. Prosince 2020 (uprava modules engine)
 	0.2.4 	| 2. Ledna 2021 (stranka profile s možnosti upravit aktivní moduly | upravy modulu inventory a module engine)
-	0.3 	| 9. Ledna 2021 (stranka nastavení)
+	0.3 	| Nastavení / 9. Ledna 2021
+	0.3.1	| 29. Ledna 2021 (Nové funkce: -> dark mode, -> skrýt datum v navigacní liště Opravy:-> navigační lista je na fixed,-> css style pro navigační listu převeden do engine modulu,-> odstranění nevyužitích souboru)
+	0.3.2	| 30. Ledna 2021 (Nové funkce: -> Možnost skrýt upozornění v dashboard, Úpravy: -> core.php modulu je nyní propojen s config.php z core -> hodnoty pro propojení database se přesunuly do config.php v core, Opravy:-> opraven zvýraznění aktivní stranky v sidebar)
 
 ====================================
 >_ Struktura hodnot modulu v databasi
 ====================================
 //Sloupek database_modules a application_modules
-Moduly se zapisuji v řádku za sebou s hodnotou true/false oddělen ;
+Aktivní moduly se zapisuji v JSON
+	Key = název modulu
+	Value = true/false 
 
-_Example_ database_modules: true;false;false;true;false;true;true
+error : true //zabranuje vytvoření chyby (Notice: Undefined index: true) pokud je aktivních modulu 0 
 
-Database:
- 0) NASTAVENI VZDY NA HODNOTU TRUE / První hodnota zabranuje k vyhození chyby (Notice: Undefined index: true)
- 1) Invenotry
- 2) Contract
- 3) Projects
- 4) Documents
- 5) Finance
- 6) Contact 
+_Example_ database_modules: {"error":"true","inventory":"true","contract":"false","projects":"false","documents":"false","finance":"false","contact":"false"}
 
-Application:
- 0) NASTAVENI VZDY NA HODNOTU TRUE / První hodnota zabranuje k vyhození chyby (Notice: Undefined index: true)
- 1) Mail
- 2) Calendar
- 3) Notification+
- 4) Control
- 5) Analytics
- 6) Server
 
 =============================
 >_ Struktura dat v databasi
@@ -62,4 +52,17 @@ poslední parametr u:i:*aleki* je uživatel tabulky
 
 
 
+====================================
+>_ Struktura sloupku setting v MySQL
+====================================
+Pro ukládání uživatelského nastavení se využívá JSON 
 
+_Example_ setting: {"dark_mode":"true","visible_date_in_navigation":"false"}
+
+Využití: 
+	Čtení 	| pro dashboard se v souboru config ve core rozšifruje řádek z $_SESSION['setting'] do array $user_setting
+	 	| pro moduly se řádek rozšifruje v core ve složce _engine
+		| pro rozšifrování se používá příkaz json_decode();
+		| $user_setting = json_decode($_SESSION['setting'], true);
+
+	Zápis	| zápis se provádí v souboru setting kodem  $user_setting_save = json_encode($user_setting); pro 

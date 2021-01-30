@@ -1,7 +1,16 @@
 <?php
 
 include '../config/session.php';
-include '../config/dbconnection.php';
+include '../config/config.php';
+
+$conn = mysqli_connect($DB_SERVER,$DB_USER,$DB_PASS,$DB_NAME);
+
+// Check connection
+if (mysqli_connect_errno())
+{
+echo "Failed to connect to MySQL: " . mysqli_connect_error();
+ }
+
 
 // Now we check if the data from the login form was submitted, isset() will check if the data exists.
 if ( !isset($_POST['username'], $_POST['password']) ) {

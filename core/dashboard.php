@@ -11,20 +11,11 @@ if (!isset($_SESSION['loggedin'])) {
 
 
 <?php include 'parts/header.php';?>
-<?php //include 'config/config.php';?>
 
 
 
     <body>
         <?php include 'parts/navigation.php';?>
-		
-		
-		
-		
-		<?php	//if ($id == ""){ echo "no";}else echo "yes"; ?>
-        
-		
-		
 		
 		<!-- Začátek informační sekce -->
         <section class="main-info" style="padding-top:  120px;">
@@ -46,7 +37,7 @@ if (!isset($_SESSION['loggedin'])) {
                     <div class="profile-status">
                         <div class="row">
 						
-						<?php if ($_SESSION['finance_modules_access']  == "true"){
+						<?php if ($access_module_database['finance']  == "true"){
 						
 							echo '<div class="col-lg">
                                     <div class="box_info red">
@@ -58,7 +49,7 @@ if (!isset($_SESSION['loggedin'])) {
                             </div>';
 						}	
 						
-						if ($_SESSION['inventory_modules_access']  == "true"){
+						if ($access_module_database['inventory']  == "true"){
 						
 							echo '<div class="col-md">
                                 <div class="box_info green">
@@ -87,7 +78,10 @@ if (!isset($_SESSION['loggedin'])) {
             <div class="container">
 			
 				
+			<?php
 			
+			if ($user_setting['visible_notif_in_dashboard'] == "true"){
+			echo '
                 <div id="general" class="general warnig" style="display: flex;">
                     <div class="warning-title"><i>Omlouváme se, ale některé funkce mohou být z technických důvodu nedostupné</i></div>
                     <div class="warning-cancle_cross close"><a><i class="fas fa-times-circle"></i></a></div>
@@ -99,8 +93,9 @@ if (!isset($_SESSION['loggedin'])) {
                 <div id="general" class="general danger" style="display: flex;">
                     <div class="warning-title"><i>Kritické přetížení serveru!!!</i></div>
                     <div class="warning-cancle_cross close"><a><i class="fas fa-times-circle"></i></a></div>
-                </div>
-				
+				</div>';} else {} 	
+			
+			?>	
 				<script>
 				$('.close').on('click', function() {
 				  $(this).parent('.general').hide();
@@ -114,7 +109,7 @@ if (!isset($_SESSION['loggedin'])) {
         <!-- Začátek oddílu pro database -->
         <section class="database">
             <div class="container">
-                <h4> Database (<?php echo intval($num_access_database_module["true"] - 1); ?>)</h4> <!-- Vypise pocet dostupny modulu --> 
+                <h4> Database (<?php echo intval($num_access_database_module["true"] - 1)?>)</h4> <!-- Vypise pocet dostupny modulu --> 
                 <div class="row">
 					
 					<?php
@@ -122,7 +117,7 @@ if (!isset($_SESSION['loggedin'])) {
 						if($num_access_database_module["true"] > "1"){ //první hodnota jen zabranuje k vyhození chyby, vzdy nastavena na hodnotu TRUE 
 							echo "<!--Moduly jsou-->";
 							
-							if ($_SESSION['inventory_modules_access'] == "true") {
+							if ($access_module_database['inventory'] == "true") {
 							
 							 	echo 	'<div class="col-md-2">
 											<a href="../modules/inventory/dashboard.php">
@@ -134,7 +129,7 @@ if (!isset($_SESSION['loggedin'])) {
 										</div>';
 							}else {}
 							
-							if ($_SESSION['contract_modules_access'] == "true") {
+							if ($access_module_database['contract'] == "true") {
 							
 							 	echo 	'<div class="col-md-2">
 											<a href="#">
@@ -146,7 +141,7 @@ if (!isset($_SESSION['loggedin'])) {
 										</div>';
 							}else {}
 							
-							if ($_SESSION['projects_modules_access'] == "true") {
+							if ($access_module_database['projects'] == "true") {
 							
 							 	echo 	'<div class="col-md-2">
 											<a href="#">
@@ -158,7 +153,7 @@ if (!isset($_SESSION['loggedin'])) {
 										</div>';
 							}else {}
 							
-							if ($_SESSION['documents_modules_access'] == "true") {
+							if ($access_module_database['documents'] == "true") {
 							
 							 	echo 	'<div class="col-md-2">
 											<a href="#">
@@ -170,7 +165,7 @@ if (!isset($_SESSION['loggedin'])) {
 										</div>';
 							}else {}
 							
-							if ($_SESSION['finance_modules_access'] == "true") {
+							if ($access_module_database['finance'] == "true") {
 							
 							 	echo 	'<div class="col-md-2">
 											<a href="#">
@@ -182,7 +177,7 @@ if (!isset($_SESSION['loggedin'])) {
 										</div>';
 							}else {}
 							
-							if ($_SESSION['contact_modules_access'] == "true") {
+							if ($access_module_database['contact'] == "true") {
 							
 							 	echo 	'<div class="col-md-2">
 											<a href="#">
@@ -193,13 +188,7 @@ if (!isset($_SESSION['loggedin'])) {
 											</a>
 										</div>';
 							}else {}
-							
-							
-							
-							
-							
-							
-							
+
 						}else {
 							
 							echo "Žadné moduly";
@@ -208,7 +197,7 @@ if (!isset($_SESSION['loggedin'])) {
 						}
 
 					?>
-					
+
                 </div>
             </div>
         </section>
@@ -225,7 +214,7 @@ if (!isset($_SESSION['loggedin'])) {
 						if($num_access_application_module["true"] > "1"){ //první hodnota nepovuluje nic, jen zabranuje k vyhození chyby vzdy nastavena na hodnotu TRUE 
 							echo "<!--Moduly jsou-->";
 							
-							if ($_SESSION['mail_modules_access'] == "true") {
+							if ($access_module_application['mail'] == "true") {
 							
 							 	echo 	'<div class="col-md-2">
 											<a href="#">
@@ -237,7 +226,7 @@ if (!isset($_SESSION['loggedin'])) {
 										</div>';
 							}else {}
 							
-							if ($_SESSION['calendar_modules_access'] == "true") {
+							if ($access_module_application['calendar'] == "true") {
 							
 							 	echo 	'<div class="col-md-2">
 											<a href="#">
@@ -249,7 +238,7 @@ if (!isset($_SESSION['loggedin'])) {
 										</div>';
 							}else {}
 							
-							if ($_SESSION['notification_modules_access'] == "true") {
+							if ($access_module_application['notification+'] == "true") {
 							
 							 	echo 	'<div class="col-md-2">
 											<a href="#">
@@ -261,7 +250,7 @@ if (!isset($_SESSION['loggedin'])) {
 										</div>';
 							}else {}
 							
-							if ($_SESSION['control_modules_access'] == "true") {
+							if ($access_module_application['control'] == "true") {
 							
 							 	echo 	'<div class="col-md-2">
 											<a href="#">
@@ -273,7 +262,7 @@ if (!isset($_SESSION['loggedin'])) {
 										</div>';
 							}else {}
 							
-							if ($_SESSION['analytics_modules_access'] == "true") {
+							if ($access_module_application['analytics'] == "true") {
 							
 							 	echo 	'<div class="col-md-2">
 											<a href="#">
@@ -285,7 +274,7 @@ if (!isset($_SESSION['loggedin'])) {
 										</div>';
 							}else {}
 							
-							if ($_SESSION['server_modules_access'] == "true") {
+							if ($access_module_application['server'] == "true") {
 							
 							 	echo 	'<div class="col-md-2">
 											<a href="#">
@@ -296,18 +285,11 @@ if (!isset($_SESSION['loggedin'])) {
 											</a>
 										</div>';
 							}else {}
-							
-							
-							
-							
-							
-							
-							
+
 						}else {
 							
 							echo "Žadné moduly";
-							
-							
+	
 						}
 
 					?>
@@ -320,7 +302,7 @@ if (!isset($_SESSION['loggedin'])) {
 		
 		<?php 
 		
-		if ($_SESSION['contract_modules_access']  == "true" || $_SESSION['projects_modules_access'] == "true"){
+		if ($access_module_database['contract']  == "true" || $access_module_database['projects'] == "true"){
 		
 		echo '
         <!-- Začátek oddílu poslední práce -->

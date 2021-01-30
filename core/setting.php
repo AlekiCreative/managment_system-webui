@@ -77,14 +77,15 @@ td {
 							$user_setting['visible_date_in_navigation'] = "false";
 						}
 					
-					//přihlašovací údaje k databasi
-					$servername = "localhost";
-					$username = "root";
-					$password = "";
-					$dbname = "ms";
-
+					if(isset($_POST['visible_notif_in_dashboard'])){
+						$user_setting['visible_notif_in_dashboard'] = "true";
+						} else {
+							$user_setting['visible_notif_in_dashboard'] = "false";
+						}
+					
+										
 					// Create connection
-					$con = new mysqli($servername, $username, $password, $dbname);
+					$con = new mysqli($DB_SERVER, $DB_USER, $DB_PASS, $DB_NAME);
 					// Check connection
 					if ($con->connect_error) {
 					  die("Connection failed: " . $con->connect_error);
@@ -126,6 +127,16 @@ td {
 						<td>
 							<label class="switch">
 								<input name="visible_date_in_navigation" id="" type="checkbox"<?php if ($user_setting['visible_date_in_navigation'] == "true"){echo "checked";}?>>
+								<span class="slider round"></span>
+							</label>
+						</td>
+					</tr>
+					
+					<tr>
+						<td><b>Visible Notification<br> In Dashboard</b></td>
+						<td>
+							<label class="switch">
+								<input name="visible_notif_in_dashboard" id="" type="checkbox"<?php if ($user_setting['visible_notif_in_dashboard'] == "true"){echo "checked";}?>>
 								<span class="slider round"></span>
 							</label>
 						</td>
